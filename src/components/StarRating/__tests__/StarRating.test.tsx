@@ -3,13 +3,17 @@ import { render } from '@testing-library/react-native';
 import { StarRating } from '../StarRating';
 
 describe('StarRating', () => {
-    test('if passed rating show the average', () => {
-        //ecrever test
-        const { getByText, getByTestId } = render(<StarRating rating={{ average: 7 }} />);
+    describe('rating was passed', () => {
+        it('show the average', () => {
+            const { getByText } = render(<StarRating rating={{ average: 7 }} />);
 
-        const element = getByText('7');
-        const icon = getByTestId('starIcon');
+            expect(getByText('7')).toBeTruthy();
+        });
 
-        expect(element).toBeTruthy();
+        it('show the star icon', () => {
+            const { getByTestId } = render(<StarRating rating={{ average: 7 }} />);
+
+            expect(getByTestId('starIcon')).toBeTruthy();
+        });
     });
 });
