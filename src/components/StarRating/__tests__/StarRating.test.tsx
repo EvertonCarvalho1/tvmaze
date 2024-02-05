@@ -16,4 +16,13 @@ describe('StarRating', () => {
             expect(getByTestId('starIcon')).toBeTruthy();
         });
     });
+
+    describe('rating was NOT passing', () => {
+        it('return nothing', () => {
+            const { container } = render(<StarRating />);
+
+            expect(container.children.length).toEqual(0);
+        });
+
+    });
 });
